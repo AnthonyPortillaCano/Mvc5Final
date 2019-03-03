@@ -1,0 +1,80 @@
+@model IEnumerable<ExamenParcialTotal.Models.Entities.DetalleSolicitudes>
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@{
+    ViewData["Title"] = "Lista de Solicitudes";
+}
+
+<h2>@Localizer["tituloPagina"]</h2>
+
+<p>
+    <a asp-action="Solicitar">@Localizer["tituloSolicitudes"]</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @*@Html.DisplayNameFor(model => model.FechaViaje)*@
+                @Localizer["fechaviaje"]
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.MotivoViaje)*@
+                @Localizer["MotivoViaje"]
+
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Duracion)*@
+                @Localizer["Duracion"]
+            </th>
+
+
+            <th>
+                @*@Html.DisplayNameFor(model => model.MontoGastar)*@
+                @Localizer["MontoGastar"]
+            </th>
+
+
+            <th>
+                @*@Html.DisplayNameFor(model => model.estado)*@
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaViaje)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MotivoViaje)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Duracion)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.MontoGastar)
+                </td>
+
+
+                <td>
+
+                    <semaforo-estado-div estado="@item.estado"></semaforo-estado-div>
+                    @*<semaforo-stock stock="@item.Stock" stock-minimo="5"></semaforo-stock>*@
+                </td>
+                @*@if (await AuthorizationService.AuthorizeAsync(User, "AllowEditDetalleSolicitud"))
+                    {*@
+                <td>
+                    <a asp-action="VisualizarAprobacion" asp-route-id="@item.DetalleSolicitudID">Visualizar</a> |
+
+                </td>
+                @*}*@
+            </tr>
+        }
+    </tbody>
+</table>

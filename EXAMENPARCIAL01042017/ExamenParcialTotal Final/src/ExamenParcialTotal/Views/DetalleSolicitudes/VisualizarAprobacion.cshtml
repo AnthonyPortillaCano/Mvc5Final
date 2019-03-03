@@ -1,0 +1,96 @@
+@model ExamenParcialTotal.Models.Entities.DetalleSolicitudes
+
+<form asp-action="VisualizarAprobacion">
+    <div class="form-horizontal">
+        <h4>DetalleSolicitudes</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="DetalleSolicitudID" />
+        
+        
+        <div class="form-group">
+            <label asp-for="NombreSolicitante" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="NombreSolicitante" class="form-control" readonly />
+                <span asp-validation-for="NombreSolicitante" class="text-danger" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label asp-for="Descripcion" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Descripcion" class="form-control" readonly />
+                <span asp-validation-for="Descripcion" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Duracion" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Duracion" class="form-control" readonly />
+                <span asp-validation-for="Duracion" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="FechaViaje" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="FechaViaje" class="form-control" readonly />
+                <span asp-validation-for="FechaViaje" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Motivo de Viaje:</label>
+            <select asp-for="SolicitudID"
+                    asp-items="@(new SelectList(ViewBag.SolicitudList,"SolicitudID","Motivo"))" disabled>
+                <option value="">Ninguna</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="GastoHotel" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="GastoHotel" class="form-control" readonly />
+                <span asp-validation-for="GastoHotel" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="GastoMovilidad" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="GastoMovilidad" class="form-control" readonly />
+                <span asp-validation-for="GastoMovilidad" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="MontoGastar" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="MontoGastar" class="form-control" readonly />
+                <span asp-validation-for="MontoGastar" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group" hidden>
+            <label asp-for="MotivoViaje" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="MotivoViaje" class="form-control" />
+                <span asp-validation-for="MotivoViaje" class="text-danger" />
+            </div>
+        </div>
+        
+
+        <div class="form-group" hidden>
+            <label asp-for="SustentoAprobacion" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="SustentoAprobacion" class="form-control" readonly />
+                <span asp-validation-for="SustentoAprobacion" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group" hidden>
+            <label asp-for="estado" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="estado" class="form-control" readonly />
+                <span asp-validation-for="estado" class="text-danger" />
+            </div>
+        </div>
+</form>
+
+<div>
+    <a asp-action="IndexSolicitante">Back to List</a>
+</div>
+
