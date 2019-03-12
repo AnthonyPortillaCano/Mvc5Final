@@ -1,0 +1,1 @@
+ExamenParcialTotal/obj/*

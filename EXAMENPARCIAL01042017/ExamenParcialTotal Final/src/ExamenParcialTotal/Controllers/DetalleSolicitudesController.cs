@@ -20,14 +20,12 @@ namespace ExamenParcialTotal.Controllers
         {
            this.DetalleSolicitudesDA = DetalleSolicitudesDA;
             this.SolicitudesDA = SolicitudesDA;
-
-
         }
         [Authorize(Policy = "PermitirVisualizarLista")]
         public IActionResult Index()
         {
 
-          
+          //pruebA asasa
             var model = DetalleSolicitudesDA.GetAll();
 
             return View(model);
